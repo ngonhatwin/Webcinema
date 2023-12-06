@@ -249,3 +249,4 @@ C:\Users\ngonh\source\repos\WebCinema\WebCinema\obj\Debug\net6.0\refint\WebCinem
 C:\Users\ngonh\source\repos\WebCinema\WebCinema\obj\Debug\net6.0\WebCinema.pdb
 C:\Users\ngonh\source\repos\WebCinema\WebCinema\obj\Debug\net6.0\WebCinema.genruntimeconfig.cache
 C:\Users\ngonh\source\repos\WebCinema\WebCinema\obj\Debug\net6.0\ref\WebCinema.dll
+C:\Users\ngonh\source\repos\WebCinema\WebCinema\obj\Debug\net6.0\WebCinema.sourcelink.json

@@ -8,7 +8,5 @@ namespace WebCinema.Models
         public string Makhachhang { get; set; } = null!;
         public int? Diemkhachhang { get; set; }
         public string? HangKh { get; set; }
-
-       
     }
 }

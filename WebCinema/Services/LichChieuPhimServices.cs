@@ -4,35 +4,12 @@ using WebCinema.Repository;
 
 namespace WebCinema.Services
 {
-    public class LichChieuPhimServices : ILichChieuPhimServices
+    public class LichChieuPhimServices : MyRepository<Lichchieuphim>
     {
-        private readonly IRepository<LichchieuphimModels> _repository;
-        public LichChieuPhimServices(IRepository<LichchieuphimModels> repository)
+        private readonly web_cinema3Context context_;
+        public LichChieuPhimServices(web_cinema3Context context) : base(context) 
         {
-            _repository = repository;
-        }
-        public async Task Add(LichchieuphimModels ctdatve)
-        {
-             await _repository.Create(ctdatve);
-        }
-
-        public async Task Delete(string id)
-        {
-            await _repository.Delete(id);
-        }
-
-        public async Task<IEnumerable<LichchieuphimModels>> GetAll()
-        {
-            return await _repository.GetAll();
-        }
-
-        public async Task<LichchieuphimModels> GetById(string id)
-        {
-            return await _repository.GetById(id);
-        }
-        public async Task Update(string id, LichchieuphimModels ctdatve)
-        {
-            await _repository.Update(id, ctdatve);
+            context_ = context;
         }
     }
 }

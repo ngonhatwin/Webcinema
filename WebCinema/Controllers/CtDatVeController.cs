@@ -12,9 +12,9 @@ namespace WebCinema.Controllers
     [Route("api/[controller]")]
     public class CtdatveController : ControllerBase
     {
-        private readonly ICtdatveService _ctdatveService;
+        private readonly CtdatveService _ctdatveService;
 
-        public CtdatveController(ICtdatveService ctdatveService)
+        public CtdatveController(CtdatveService ctdatveService)
         {
             _ctdatveService = ctdatveService;
         }
@@ -41,26 +41,36 @@ namespace WebCinema.Controllers
 
         // Endpoint for adding a new Ctdatve entity
         [HttpPost]
-        public async Task<IActionResult> Add(CtdatveModels ctdatveModel)
+        public async Task<IActionResult> Add(Ctdatve ctdatveentiti)
         {
-            if(ctdatveModel == null)
+            if(ctdatveentiti == null)
             {
                 return BadRequest();
             }
-            await _ctdatveService.Add(ctdatveModel);
+            await _ctdatveService.Create(ctdatveentiti);
             return Ok();
             
         }
 
-        // Endpoint for updating an existing Ctdatve entity
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(string id,  CtdatveModels ctdatveModel)
+        [HttpPost("add-by-models")]
+        public async Task<IActionResult> AddCtBymodel(CtdatveModels ct)
         {
-            if (ctdatveModel == null)
+            if (ct == null)
             {
                 return BadRequest();
             }
-            await _ctdatveService.Update(id, ctdatveModel);
+            await _ctdatveService.CreatebyModels(ct);
+            return Ok();
+        }
+        // Endpoint for updating an existing Ctdatve entity
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(string id,  Ctdatve ctDatve)
+        {
+            if (ctDatve == null)
+            {
+                return BadRequest();
+            }
+            await _ctdatveService.Update(id, ctDatve);
             return Ok();
         }
 

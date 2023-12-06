@@ -472,6 +472,8 @@ namespace WebCinema.Entities
             OnModelCreatingPartial(modelBuilder);
         }
 
+        
+
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

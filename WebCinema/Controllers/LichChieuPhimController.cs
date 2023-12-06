@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebCinema.Entities;
 using WebCinema.Models;
 using WebCinema.Services;
 
@@ -9,8 +10,8 @@ namespace WebCinema.Controllers
     [ApiController]
     public class LichChieuPhimController : ControllerBase
     {
-        private readonly ILichChieuPhimServices services;
-        public LichChieuPhimController(ILichChieuPhimServices services)
+        private readonly LichChieuPhimServices services;
+        public LichChieuPhimController(LichChieuPhimServices services)
         {
             this.services = services;
         }
@@ -31,24 +32,24 @@ namespace WebCinema.Controllers
 
         // Endpoint for adding a new Ctdatve entity
         [HttpPost]
-        public async Task<IActionResult> Add(LichchieuphimModels Lichchieu)
+        public async Task<IActionResult> Add(Lichchieuphim Lichchieu)
         {
-           if(Lichchieu != null)
+            if (Lichchieu != null)
             {
-                await services.Add(Lichchieu);
-            }    
-           return BadRequest("Đã Thêm");
+                await services.Create(Lichchieu);
+            }
+            return BadRequest("Đã Thêm");
         }
 
         // Endpoint for updating an existing Ctdatve entity
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(string id, LichchieuphimModels Lichchieu)
+        public async Task<IActionResult> Update(string id, Lichchieuphim Lichchieu)
         {
             if (Lichchieu != null)
             {
                 await services.Update(id, Lichchieu);
-            }    
-            return Ok();    
+            }
+            return Ok();
         }
 
         // Endpoint for deleting a specific Ctdatve entity by ID

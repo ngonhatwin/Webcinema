@@ -20,16 +20,17 @@ builder.Services.AddDbContext<web_cinema3Context>(options =>
     options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 });
 
-// Đăng ký ICtdatveRepository và CtdatveRepository
-//builder.Services.AddScoped<IRepository<CtdatveModels>, CtdatveRepository>();
-//// Đăng ký ICtdatveService và CtdatveService
-//builder.Services.AddScoped<ICtdatveService, CtdatveService>();
-//builder.Services.AddScoped<IRepository<TtdatveModels>, TtDatVeRepository>();
-//builder.Services.AddScoped<ITtDatVeServices,TtDatVeServices>();6
-builder.Services.AddScoped<IRepository<LichchieuphimModels>, LichChieuPhimRepository>();
-builder.Services.AddScoped<ILichChieuPhimServices, LichChieuPhimServices>();
-builder.Services.AddScoped<IRepository<PhongModels>, PhongRepository>();
-builder.Services.AddScoped<IPhongServices, PhongServices>();
+builder.Services.AddScoped<GheServices>();
+builder.Services.AddScoped<PhongServices>();
+builder.Services.AddScoped<CtdatveService>();
+builder.Services.AddScoped<TdKhachHangServices>();
+builder.Services.AddScoped<TheLoaiServices>();
+builder.Services.AddScoped<LichChieuPhimServices>();
+builder.Services.AddScoped<TtDatVeServices>();
+builder.Services.AddScoped<TrangThaiGheServices>();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(MyRepository<>));
+
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });

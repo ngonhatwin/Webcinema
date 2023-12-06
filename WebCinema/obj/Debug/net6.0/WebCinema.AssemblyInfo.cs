@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebCinema")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3230b371fac2367185dd0f58c51e9e3f3e33a436")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebCinema")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebCinema")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

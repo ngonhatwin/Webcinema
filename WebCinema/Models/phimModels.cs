@@ -5,7 +5,6 @@ namespace WebCinema.Models
 {
     public partial class PhimModels
     {
-      
         public string MaPhim { get; set; } = null!;
         public string TenPhim { get; set; } = null!;
         public DateTime Ngaykhoichieu { get; set; }
@@ -16,7 +15,5 @@ namespace WebCinema.Models
         public string MaQuocGia { get; set; } = null!;
         public string Banner { get; set; } = null!;
         public int Thoiluong { get; set; }
-
-      
     }
 }

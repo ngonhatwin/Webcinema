@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebCinema.Entities;
 using WebCinema.Models;
 using WebCinema.Services;
 
@@ -9,8 +10,8 @@ namespace WebCinema.Controllers
     [ApiController]
     public class TtDatVeController : ControllerBase
     {
-        private readonly ITtDatVeServices _services;
-        public TtDatVeController(ITtDatVeServices services)
+        private readonly TtDatVeServices _services;
+        public TtDatVeController(TtDatVeServices services)
         {
             _services = services;
         }
@@ -21,7 +22,6 @@ namespace WebCinema.Controllers
             return Ok(ctdatves);
         }
 
-        // Endpoint for retrieving a specific Ctdatve entity by ID
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {
@@ -33,22 +33,21 @@ namespace WebCinema.Controllers
             return Ok(ctdatve);
         }
 
-        // Endpoint for adding a new Ttdatve entity
         [HttpPost]
-        public async Task<IActionResult> Add(TtdatveModels ttdv)
+        public async Task<IActionResult> Add(Ttdatve ttdv)
         {
             if (ttdv == null)
             {
                 return BadRequest();
             }
-            await _services.Add(ttdv);
+            await _services.Create(ttdv);
             return Ok();
 
         }
 
-        // Endpoint for updating an existing Ctdatve entity
+
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(string id, TtdatveModels ttdv)
+        public async Task<IActionResult> Update(string id, Ttdatve ttdv)
         {
             if (ttdv == null)
             {
@@ -58,11 +57,11 @@ namespace WebCinema.Controllers
             return Ok();
         }
 
-        // Endpoint for deleting a specific Ctdatve entity by ID
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-            await  _services.Delete(id);
+            await _services.Delete(id);
             return Ok("Ctdatve deleted successfully.");
         }
 
